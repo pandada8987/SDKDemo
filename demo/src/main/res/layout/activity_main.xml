@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_layout_input"
+        android:gravity="center"
+        android:minHeight="180dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_device_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="设备信息区"
+            android:textColor="#cfcfcf"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="功能" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_layout_input"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/ButtonStyle"
+            android:text="登录" />
+
+        <Button
+            android:id="@+id/btn_pay"
+            style="@style/ButtonStyle"
+            android:text="充值" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            style="@style/ButtonStyle"
+            android:text="退出登录" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="日志" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_layout_input"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btn_select_server"
+            style="@style/ButtonStyle"
+            android:text="选服" />
+
+        <Button
+            android:id="@+id/btn_create_role"
+            style="@style/ButtonStyle"
+            android:text="创角" />
+
+        <Button
+            android:id="@+id/btn_rename_role"
+            style="@style/ButtonStyle"
+            android:text="改名" />
+
+        <Button
+            android:id="@+id/btn_upgrade"
+            style="@style/ButtonStyle"
+            android:text="升级" />
+    </LinearLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

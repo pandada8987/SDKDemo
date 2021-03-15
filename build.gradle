@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        //使用自己发布的gradle
+//        classpath 'com.plugin.gradle:HostGradle:1.2.2'
+        classpath 'com.android.tools.build:gradle:3.2.0'
+
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+    }
+    //注释中有汉字，需要这里处理
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+    //注释中有汉字，需要这里处理
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    signingConfigs {
+        config {
+            keyAlias 'htkey'
+            keyPassword '0xt96xsxiyzx'
+            storeFile file('htsign.jks')
+            storePassword '0xt96xsxiyzx'
+        }
+    }
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api files('libs/channel-helper-2.0.3.jar')
+    api files('libs/fastjson-1.2.68.jar')
+    api files('libs/replugin-host-lib-2.3.3.jar')
+    api files('libs/shanyan-v2.3.2.9.jar')
+    api files('libs/wechat-sdk-6.6.4.jar')
+    api files('libs/GDTActionSDK-1.6.12.jar')
+    api files('libs/xxpermissions-8.6.jar')
+    api files('libs/r-classes.jar')
+    api files('libs/toutiao-5.3.0.jar')
+//    compileOnly files('libs/GDTActionSDK.jar')//6kw广点通冲突，只编译不打包
+}
+
+// 发布maven配置
+apply from: 'local-build.gradle'//发布到本地maven仓库,选择右边gradle任务uploadArchives
+//apply from: 'jcenter-build.gradle'//发布到jcenter仓库，Terminal命令行执行gradlew clean install bintrayUpload

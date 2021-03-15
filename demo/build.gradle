@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'replugin-host-gradle'
+android {
+    compileSdkVersion 26
+    signingConfigs {
+        config {
+            keyAlias 'htkey'
+            keyPassword '0xt96xsxiyzx'
+            storeFile file('htsign.jks')
+            storePassword '0xt96xsxiyzx'
+        }
+    }
+    defaultConfig {
+        applicationId "com.htsy.demo"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.1.2"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+}
+//repluginHostConfig {
+//    useAppCompat = false
+//    countProcess = 0
+//    countTask = 0
+//    countNotTranslucentStandard = 2
+//    countNotTranslucentSingleTop = 1
+//    countNotTranslucentSingleTask = 1
+//    countNotTranslucentSingleInstance = 1
+//    countTranslucentStandard = 3
+//    countTranslucentSingleTop = 1
+//    countTranslucentSingleTask = 1
+//    countTranslucentSingleInstance = 1
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation project(path: ':GameSDK')
+}

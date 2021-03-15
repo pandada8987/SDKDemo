@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">火豚Demo</string>
+    <string name="server_client_id">571584885723-nkfu6i7fcg3pl1u261dhdmthi8gp7nsm.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">711941429540056</string> <string name="fb_login_protocol_scheme">fb711941429540056</string>
+</resources>
