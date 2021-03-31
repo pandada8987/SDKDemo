@@ -23,6 +23,7 @@ import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.RePluginConfig;
 import com.qq.gdt.action.ActionType;
 import com.qq.gdt.action.GDTAction;
+import com.xwan.datasdk.XSDK;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,7 +55,11 @@ public class HtApp {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
+                switch (Constant.CHANNEL_TYPE) {
+                    case ChannelType.YYBSDK:
+                        XSDK.getInstance().init(activity);
+                        break;
+                }
             }
 
             @Override
@@ -69,9 +74,10 @@ public class HtApp {
                         AppLog.onResume(activity);
                         break;
                     case ChannelType.YYBSDK:
-                        if (XXPermissions.hasPermission(activity, Permission.READ_PHONE_STATE)) {
-                            GDTAction.logAction(ActionType.START_APP);
-                        }
+                        XSDK.getInstance().onResume(activity,Constant.UID);
+//                        if (XXPermissions.hasPermission(activity, Permission.READ_PHONE_STATE)) {
+//                            GDTAction.logAction(ActionType.START_APP);
+//                        }
                         break;
                 }
             }

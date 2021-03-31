@@ -8,6 +8,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
+import com.huotun.sdk.config.Constant;
 import com.huotun.sdk.entity.ReportBean;
 import com.huotun.sdk.entity.User;
 import com.huotun.sdk.open.SDKListener;
@@ -130,6 +131,7 @@ public class EventManager {
         if (!TextUtils.isEmpty(content)) {
             User user = JSON.parseObject(content, User.class);
             if (mSDKListener != null && user != null) {
+                Constant.UID = user.getUserId();
                 mSDKListener.onLoginSuccess(user);
             }
         }

@@ -10,4 +10,5 @@ public class Constant {
 
     public static String CHANNEL_ID = "11";//默认渠道ID
     public static String CHANNEL_TYPE = ChannelType.NONE;//默认渠道类型
+    public static String UID = "";//默认渠道ID
 }
