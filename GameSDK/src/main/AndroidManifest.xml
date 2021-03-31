@@ -77,28 +77,23 @@
         <!--**********************头条SDK配置 end**************************-->
 
         <activity
-            android:name="com.baidu.xenv.XenvActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:launchMode="standard"
-            android:theme="@android:style/Theme.Translucent" >
+            android:name="com.xwan.datasdk.grant.GrantActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
             <intent-filter>
-                <action android:name="com.baidu.action.Xenv.VIEW" />
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="com.baidu.category.xenv" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <service
-            android:name="com.baidu.xenv.XenvService"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.baidu.action.Xenv.VIEW" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
-                <category android:name="com.baidu.category.xenv" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
+        <provider
+            android:authorities="${applicationId}.loader.p.main"
+            android:name="com.qihoo360.replugin.component.process.ProcessPitProviderPersist"
+            android:process="${applicationId}"/>
     </application>
 </manifest>

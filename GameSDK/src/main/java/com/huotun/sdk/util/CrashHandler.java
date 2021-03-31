@@ -134,6 +134,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         String result = writer.toString();
         sb.append(result);
 
+        LogUtil.d(sb.toString());
         saveToSp(sb.toString());
 //        saveToFile(sb.toString());
         return null;

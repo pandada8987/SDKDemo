@@ -11,7 +11,7 @@ import com.bytedance.applog.util.UriConstants;
 import com.huotun.sdk.config.ChannelType;
 import com.huotun.sdk.config.Constant;
 import com.huotun.sdk.entity.ReportBean;
-import com.huotun.sdk.open.AppNoExtend;
+import com.huotun.sdk.open.HtApp;
 import com.huotun.sdk.util.LogUtil;
 
 public class ReportTouTiao implements IReportSDK {
@@ -48,7 +48,7 @@ public class ReportTouTiao implements IReportSDK {
                     Log.d("AppLog", s);
                 }
             });
-            AppLog.init(AppNoExtend.getContext(), config);
+            AppLog.init(HtApp.getContext(), config);
             isInitSuccess = true;
             LogUtil.d("头条初始化成功：" + appId);
         }

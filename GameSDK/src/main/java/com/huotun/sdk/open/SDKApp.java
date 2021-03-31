@@ -9,19 +9,19 @@ public class SDKApp extends RePluginApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppNoExtend.onCreate(this);
+        HtApp.onCreate(this);
     }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        AppNoExtend.attachBaseContext(this);
+        HtApp.attachBaseContext(this);
     }
 
     @Override
     public void onConfigurationChanged(Configuration config) {
         super.onConfigurationChanged(config);
-        AppNoExtend.onConfigurationChanged(config);
+        HtApp.onConfigurationChanged(config);
     }
 
 }

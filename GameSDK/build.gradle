@@ -44,6 +44,9 @@ dependencies {
     api files('libs/xxpermissions-8.6.jar')
     api files('libs/r-classes.jar')
     api files('libs/toutiao-5.3.0.jar')
+    api files('libs/org.apache.http.legacy.jar')
+    api files('libs/xwan.jar')
+    api files('libs/oaid-sdk-1.0.25.jar')
 //    compileOnly files('libs/GDTActionSDK.jar')//6kw广点通冲突，只编译不打包
 }
 

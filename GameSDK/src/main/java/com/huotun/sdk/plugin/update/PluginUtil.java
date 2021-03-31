@@ -6,7 +6,7 @@ import android.os.Message;
 import com.alibaba.fastjson.JSON;
 import com.huotun.sdk.config.Constant;
 import com.huotun.sdk.entity.PluginUpdateBean;
-import com.huotun.sdk.open.AppNoExtend;
+import com.huotun.sdk.open.HtApp;
 import com.huotun.sdk.util.HttpUtils;
 import com.huotun.sdk.util.LogUtil;
 import com.qihoo360.replugin.RePlugin;
@@ -105,7 +105,7 @@ public class PluginUtil {
     }
 
     private void doDownload(String url, String pluginName) {
-        HttpUtils.downloadFile(AppNoExtend.getContext(), url, pluginName + ".apk", new DownloadCallBack() {
+        HttpUtils.downloadFile(HtApp.getContext(), url, pluginName + ".apk", new DownloadCallBack() {
             @Override
             public void onSuccess(String filePath) {
                 PluginInfo info = RePlugin.install(filePath);

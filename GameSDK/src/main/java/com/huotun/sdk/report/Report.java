@@ -25,8 +25,13 @@ public class Report {
                     LogUtil.d("当前上报SDK——头条");
                     break;
                 case ChannelType.YYBSDK:
-                    setReportSDK(new ReportGdt());
-                    LogUtil.d("当前上报SDK——广点通");
+                    if (Constant.GAME_CONFIG.isXwan()){
+                        setReportSDK(new ReportXwan());
+                        LogUtil.d("当前上报SDK——Xwan");
+                    }else {
+                        setReportSDK(new ReportGdt());
+                        LogUtil.d("当前上报SDK——广点通");
+                    }
                     break;
             }
         }

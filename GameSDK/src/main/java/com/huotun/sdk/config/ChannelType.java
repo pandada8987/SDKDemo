@@ -6,4 +6,5 @@ public interface ChannelType {
     String KUAISHOU = "kuaishou";//快手
     String YYBSDK = "yybsdk";//广点通SDK
     String BAIDU = "baidu";//百度SDK
+    String XWAN = "xwan";
 }

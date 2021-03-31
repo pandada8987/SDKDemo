@@ -16,7 +16,7 @@ import com.chuanglan.shanyan_sdk.listener.OneKeyLoginListener;
 import com.chuanglan.shanyan_sdk.listener.OpenLoginAuthListener;
 import com.chuanglan.shanyan_sdk.tool.ShanYanUIConfig;
 import com.huotun.sdk.entity.ShanYanBean;
-import com.huotun.sdk.open.AppNoExtend;
+import com.huotun.sdk.open.HtApp;
 import com.huotun.sdk.plugin.EventManager;
 import com.huotun.sdk.plugin.EventType;
 
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class ShanYanUtil {
     //插件反射调用，不可删除
     public static void init(String key) {
-        OneKeyLoginManager.getInstance().init(AppNoExtend.getContext(), key, new InitListener() {
+        OneKeyLoginManager.getInstance().init(HtApp.getContext(), key, new InitListener() {
             @Override
             public void getInitStatus(int code, String result) {
                 LogUtil.d(result);
@@ -48,7 +48,7 @@ public class ShanYanUtil {
 
     //插件反射调用，不可删除
     public static void login() {
-        OneKeyLoginManager.getInstance().setAuthThemeConfig(getDialogUiConfig(AppNoExtend.getContext()));
+        OneKeyLoginManager.getInstance().setAuthThemeConfig(getDialogUiConfig(HtApp.getContext()));
         OneKeyLoginManager.getInstance().openLoginAuth(true, new OpenLoginAuthListener() {
             @Override
             public void getOpenLoginAuthStatus(int i, String s) {

@@ -31,7 +31,7 @@ public class GameSDKImp implements GameSDK {
         new PluginUtil().checkUpdate(new CheckUpdateCallBack() {
             @Override
             public void checkUpdateFinish() {
-                AppNoExtend.isCheckUpdateFinish=true;
+                HtApp.isCheckUpdateFinish=true;
                 initEventManager();
                 new Handler().postDelayed(new Runnable() {
                     @Override

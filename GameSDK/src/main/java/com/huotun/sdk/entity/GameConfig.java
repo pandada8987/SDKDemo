@@ -25,6 +25,7 @@ public class GameConfig {
     private String toutiaoAppId = "";
     private String toutiaoAppName = "";
     private String channelInfo = "htchannel_11_none";
+    private boolean isXwan = true;
 
     public String getPlatCode() {
         return platCode;
@@ -112,5 +113,13 @@ public class GameConfig {
 
     public void setChannelInfo(String channelInfo) {
         this.channelInfo = channelInfo;
+    }
+
+    public boolean isXwan() {
+        return isXwan;
+    }
+
+    public void setXwan(boolean xwan) {
+        isXwan = xwan;
     }
 }

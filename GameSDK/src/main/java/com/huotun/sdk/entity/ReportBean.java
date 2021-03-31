@@ -1,6 +1,5 @@
 package com.huotun.sdk.entity;
 
-//第三方上报，宿主目前只用于广点通上报
 public class ReportBean {
     private String productName;//商品名称
     private String productId;//商品id
@@ -9,6 +8,8 @@ public class ReportBean {
     private String curtype;//货币类型
     private Boolean isSuccess = true;//是否成功
     private int money;//金额
+    private String uid;
+    private String orderId;
 
     public String getProductName() {
         return productName;
@@ -64,5 +65,21 @@ public class ReportBean {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }
