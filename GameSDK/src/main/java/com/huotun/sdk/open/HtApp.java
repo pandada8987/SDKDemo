@@ -9,20 +9,15 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.bytedance.applog.AppLog;
-import com.hjq.permissions.Permission;
-import com.hjq.permissions.XXPermissions;
 import com.huotun.sdk.config.ChannelType;
 import com.huotun.sdk.config.Constant;
 import com.huotun.sdk.entity.GameConfig;
 import com.huotun.sdk.report.Report;
 import com.huotun.sdk.util.AppUtil;
 import com.huotun.sdk.util.CrashHandler;
-import com.huotun.sdk.util.LogUtil;
 import com.leon.channel.helper.ChannelReaderUtil;
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.RePluginConfig;
-import com.qq.gdt.action.ActionType;
-import com.qq.gdt.action.GDTAction;
 import com.xwan.datasdk.XSDK;
 
 import java.util.Timer;
@@ -34,6 +29,7 @@ public class HtApp {
 
     public static void onCreate(Context context) {
         mContext = context;
+        RePlugin.App.onCreate();
         initConfigJson();
         initChannelInfo();
         Report.getInstance().init();
@@ -120,7 +116,7 @@ public class HtApp {
         if (!TextUtils.isEmpty(channelInfo)) {
             Constant.ChannelInfo = channelInfo.split("_");
         } else {
-            channelInfo = "htchannel_1402_yybsdk_1111585319_3ba5f894c8453b3ea967fc0efb05883f";
+            channelInfo = "htchannel_11_none";
             Constant.ChannelInfo = channelInfo.split("_");
         }
         if (Constant.ChannelInfo.length >= 3) {
@@ -130,6 +126,7 @@ public class HtApp {
     }
 
     public static void attachBaseContext(final Application application) {
+        RePlugin.App.attachBaseContext(application);
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
@@ -147,6 +144,7 @@ public class HtApp {
     }
 
     public static void onConfigurationChanged(final Configuration config) {
+        RePlugin.App.onConfigurationChanged(config);
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

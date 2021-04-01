@@ -52,6 +52,7 @@ public class GameSDKImp implements GameSDK {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//6.0以上，在获取权限地方的回调调用open接口、6.0以下直接调用open接口
             XXPermissions.with(mActivity)//CP若连续调初始化和登录，登录界面关闭之前，不会回调。
                     .permission(Permission.READ_PHONE_STATE)
+                    .permission(Permission.ACCESS_FINE_LOCATION)
                     .request(new OnPermission() {
                         @Override
                         public void hasPermission(List<String> granted, boolean isAll) {

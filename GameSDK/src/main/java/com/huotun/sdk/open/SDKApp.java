@@ -23,5 +23,4 @@ public class SDKApp extends RePluginApplication {
         super.onConfigurationChanged(config);
         HtApp.onConfigurationChanged(config);
     }
-
 }
