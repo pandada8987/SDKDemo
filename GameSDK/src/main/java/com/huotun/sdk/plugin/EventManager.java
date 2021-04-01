@@ -13,6 +13,8 @@ import com.huotun.sdk.entity.ReportBean;
 import com.huotun.sdk.entity.User;
 import com.huotun.sdk.open.SDKListener;
 import com.huotun.sdk.report.Report;
+import com.huotun.sdk.util.LogUtil;
+import com.xwan.datasdk.XSDK;
 
 public class EventManager {
     private static EventManager Instance;
@@ -132,6 +134,8 @@ public class EventManager {
             User user = JSON.parseObject(content, User.class);
             if (mSDKListener != null && user != null) {
                 Constant.UID = user.getUserId();
+                XSDK.getInstance().login(user.getUserId());
+                LogUtil.d("上报Xwan登录调用成功");
                 mSDKListener.onLoginSuccess(user);
             }
         }

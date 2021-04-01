@@ -18,6 +18,7 @@ public class ReportXwan implements IReportSDK {
 
     @Override
     public void register(String userType) {
+        LogUtil.d("上报Xwan注册调用成功，userId = "+userType);
         XSDK.getInstance().register(userType);
     }
 

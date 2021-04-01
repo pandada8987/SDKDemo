@@ -18,6 +18,8 @@ import com.huotun.sdk.util.CrashHandler;
 import com.leon.channel.helper.ChannelReaderUtil;
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.RePluginConfig;
+import com.xwan.datasdk.LogUtil;
+import com.xwan.datasdk.LogUtils;
 import com.xwan.datasdk.XSDK;
 
 import java.util.Timer;
@@ -30,6 +32,7 @@ public class HtApp {
     public static void onCreate(Context context) {
         mContext = context;
         RePlugin.App.onCreate();
+        LogUtil.openLog(true);
         initConfigJson();
         initChannelInfo();
         Report.getInstance().init();
